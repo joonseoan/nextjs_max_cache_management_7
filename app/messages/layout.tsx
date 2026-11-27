@@ -5,6 +5,7 @@ async function MessageCount() {
     // headers: {
     //   'X-ID': 'layout',
     // },
+    cache: 'force-cache',
   });
   const messages = await response.json();
   const totalMessages = messages.length;
@@ -20,7 +21,7 @@ export default async function MessagesLayout(
     <>
       <h1>Important Messages</h1>
       <Suspense fallback={<p>Message count is loading..</p>}>
-        <MessageCount /> 
+        <MessageCount />
       </Suspense>
       <hr />
       {children}
